@@ -1,0 +1,1 @@
+export const EUR = new Intl.NumberFormat("nl-NL", { style: "currency", currency: "EUR" });

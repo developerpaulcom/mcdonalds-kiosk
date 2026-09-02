@@ -1,0 +1,14 @@
+.productcard {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    aspect-ratio: 2/1;
+    object-fit: contain;
+  }
+}

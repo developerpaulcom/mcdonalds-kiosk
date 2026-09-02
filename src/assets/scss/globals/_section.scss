@@ -1,0 +1,96 @@
+﻿:root {
+  --spacing: clamp(3rem, #{size(6.5)}, 10.5rem);
+  --spacing_l: clamp(6rem, #{size(11)}, 14rem);
+  --spacing_s: clamp(1.5rem, #{size(2)}, 3.75rem);
+}
+
+.section--padding {
+  padding-top: var(--spacing);
+  padding-bottom: var(--spacing);
+
+  &--l {
+    padding-top: var(--spacing_l);
+    padding-bottom: var(--spacing_l);
+  }
+
+  &--s {
+    padding-top: var(--spacing_s);
+    padding-bottom: var(--spacing_s);
+  }
+}
+
+.section--padding-t {
+  padding-top: var(--spacing);
+
+  &--l {
+    padding-top: var(--spacing_l);
+  }
+
+  &--s {
+    padding-top: var(--spacing_s);
+  }
+}
+
+.section--padding-b {
+  padding-bottom: var(--spacing);
+
+  &--l {
+    padding-bottom: var(--spacing_l);
+  }
+
+  &--s {
+    padding-bottom: var(--spacing_s);
+  }
+}
+
+.section--margin {
+  margin-top: var(--spacing);
+  margin-bottom: var(--spacing);
+
+  &--l {
+    margin-top: var(--spacing_l);
+    margin-bottom: var(--spacing_l);
+  }
+
+  &--s {
+    margin-top: var(--spacing_s);
+    margin-bottom: var(--spacing_s);
+  }
+}
+
+.section--margin-t {
+  margin-top: var(--spacing);
+
+  &--l {
+    margin-top: var(--spacing_l);
+  }
+
+  &--s {
+    margin-top: var(--spacing_s);
+  }
+}
+
+.section--margin-b {
+  margin-bottom: var(--spacing);
+
+  &--l {
+    margin-bottom: var(--spacing_l);
+  }
+
+  &--s {
+    margin-bottom: var(--spacing_s) !important;
+  }
+}
+
+.section--white {
+  background-color: var(--white);
+}
+
+.section--dark {
+  background-color: var(--dark);
+  color: var(--white);
+}
+
+.section--light {
+  background-color: var(--light);
+}

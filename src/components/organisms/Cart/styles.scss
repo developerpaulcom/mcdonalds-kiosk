@@ -1,0 +1,83 @@
+.cart {
+  width: 380px;
+  flex-shrink: 0;                 // paneel krimpt niet mee met het menu
+  height: 100vh;
+  display: flex;
+  flex-direction: column;         // titel · lijst · footer onder elkaar
+  background: var(--white);
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.08);  // subtiele scheiding met het menu
+}
+
+.cart__title {
+  margin: 0;
+  padding: 1.5rem;
+  background: var(--red);
+  color: var(--white);
+  font-size: 1.4rem;
+}
+
+.cart__empty {
+  flex: 1;                        // duwt de footer naar beneden
+  display: grid;
+  place-items: center;           // centreert de tekst
+  color: var(--light);
+  padding: 2rem;
+}
+
+.cart__list {
+  flex: 1;                        // vult de ruimte tussen titel en footer
+  overflow-y: auto;              // scrollt bij veel items
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+.cart__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+}
+
+.cart__item-img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.cart__item-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;                        // duwt de subtotaal-prijs naar rechts
+  min-width: 0;                  // laat lange namen netjes afbreken
+}
+
+.cart__item-name {
+  font-weight: 600;
+  color: var(--black);
+}
+
+.cart__item-qty {
+  font-size: 0.85rem;
+  color: var(--light);
+}
+
+.cart__item-price {
+  font-weight: 700;
+  color: var(--black);
+  white-space: nowrap;
+}
+
+.cart__footer {
+  border-top: 1px solid #eee;
+  padding: 1.5rem;
+}
+
+.cart__total {
+  display: flex;
+  justify-content: space-between; // "Totaal" links, bedrag rechts
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}

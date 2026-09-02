@@ -1,0 +1,17 @@
+﻿.grid {
+  @media(min-width:61.9em) {
+    display: grid;
+    grid-template-columns: 70% auto;
+    gap: 2.5rem;
+  }
+
+  >* {
+    .img_wrapper {
+      @extend .sticky;
+    }
+  }
+}
+
+.grid--s {
+  gap: .75rem;
+}

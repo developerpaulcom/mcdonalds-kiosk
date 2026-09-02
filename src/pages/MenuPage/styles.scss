@@ -1,0 +1,50 @@
+// menu (links) + mandje (rechts) naast elkaar, samen schermvullend
+.menu-layout {
+  display: flex;
+  height: 100vh;
+}
+
+// de menu-kolom scrollt zelf; het mandje-paneel blijft staan
+.menu {
+  flex: 1;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.categories {
+  display: flex;              // knoppen op één rij
+  flex-wrap: wrap;           // breekt netjes af bij smal scherm
+  gap: 0.75rem;              // ruimte tussen de knoppen
+  padding: 1.5rem 2rem 0;    // lucht boven/naast, niet onder (grid komt eronder)
+}
+
+.category {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--yellow);
+  border-radius: 999px;       // volledig ronde "pill"
+  background: var(--white);
+  color: var(--black);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease; // zachte overgang
+}
+
+// alleen de geselecteerde knop
+.category.active {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--white);
+}
+
+// muis-hover op niet-actieve knoppen
+.category:not(.active):hover {
+  background: var(--yellow);
+}
+
+.menupage {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}

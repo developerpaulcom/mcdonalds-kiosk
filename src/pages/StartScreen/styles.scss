@@ -1,0 +1,18 @@
+.startscreen {
+    margin: 0 auto;
+    width: 33%;
+    height: 100vh;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .btn--panel {
+        width: 13rem;
+        height: 13rem;
+    }
+}
+
+.startscreen_content {
+    text-align: center;
+}
