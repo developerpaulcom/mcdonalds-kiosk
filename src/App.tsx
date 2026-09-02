@@ -6,10 +6,10 @@ import { type CartItem, type Product } from "./data/products";
 
 type Screen = "start" | "menu";
 export type OrderType = "eat in" | "take away";
-const [orderType, setOrderType] = useState<OrderType | null>(null)
 
 function App() {
 
+  const [orderType, setOrderType] = useState<OrderType | null>(null)
   const [screen, setScreen] = useState<Screen>("start");
   const [cart, setCart] = useState<CartItem[]>([]);
 

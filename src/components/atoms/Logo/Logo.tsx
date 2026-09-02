@@ -3,7 +3,7 @@ import logo from '../../../assets/images/logo-mcdonalds.png'
 
 function Logo() {
   return (
-    <div className="logo section--margin-b">
+    <div className="logo">
       <img src={logo} alt='Logo' />
     </div>
   );

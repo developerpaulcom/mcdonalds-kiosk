@@ -17,8 +17,10 @@ function Cart({ cart, orderType }: CartProps) {
   const { t } = useTranslation();
   return (
     <aside className="cart">
-      <img src={orderType === "eat-in" ? eatIn : takeAway} alt={orderType === "eat-in" ? t('start.eatIn') : t('start.takeAway')} width={40} height={40} />
-      <h2 className="cart__title">Je bestelling</h2>
+      <div className="cart__title">
+        {orderType && (<img src={orderType === "eat in" ? eatIn : takeAway} alt={orderType === "eat in" ? t('start.eatIn') : t('start.takeAway')} width={30} height={30} />)}
+        <h2>Je bestelling</h2>
+      </div>
 
       {cart.length === 0 ? (
         <p className="cart__empty">Je mandje is nog leeg</p>

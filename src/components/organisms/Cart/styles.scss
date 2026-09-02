@@ -1,11 +1,11 @@
 .cart {
   width: 380px;
-  flex-shrink: 0;                 // paneel krimpt niet mee met het menu
+  flex-shrink: 0; // paneel krimpt niet mee met het menu
   height: 100vh;
   display: flex;
-  flex-direction: column;         // titel · lijst · footer onder elkaar
+  flex-direction: column; // titel · lijst · footer onder elkaar
   background: var(--white);
-  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.08);  // subtiele scheiding met het menu
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.08); // subtiele scheiding met het menu
 }
 
 .cart__title {
@@ -14,19 +14,30 @@
   background: var(--red);
   color: var(--white);
   font-size: 1.4rem;
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+
+  h2 {
+    margin-bottom: 0;
+  }
+
+  img {
+    filter: brightness(0) invert(1);
+  }
 }
 
 .cart__empty {
-  flex: 1;                        // duwt de footer naar beneden
+  flex: 1; // duwt de footer naar beneden
   display: grid;
-  place-items: center;           // centreert de tekst
+  place-items: center; // centreert de tekst
   color: var(--light);
   padding: 2rem;
 }
 
 .cart__list {
-  flex: 1;                        // vult de ruimte tussen titel en footer
-  overflow-y: auto;              // scrollt bij veel items
+  flex: 1; // vult de ruimte tussen titel en footer
+  overflow-y: auto; // scrollt bij veel items
   list-style: none;
   margin: 0;
   padding: 0.5rem 0;
@@ -49,8 +60,8 @@
 .cart__item-info {
   display: flex;
   flex-direction: column;
-  flex: 1;                        // duwt de subtotaal-prijs naar rechts
-  min-width: 0;                  // laat lange namen netjes afbreken
+  flex: 1; // duwt de subtotaal-prijs naar rechts
+  min-width: 0; // laat lange namen netjes afbreken
 }
 
 .cart__item-name {

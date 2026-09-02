@@ -20,24 +20,28 @@ function MenuPage({ onCancel, onAddToCart }: MenuPageProps) {
 
   return (
     <div className="menu">
-      <div className='categories'>
+      <div className='menu--left'>
         <Logo />
-        {categories.map(category => (
-          <button key={category} onClick={() => setActiveCategory(category)} className={`category ${category === activeCategory ? "active" : ""}`}>
-            {category}
-          </button>
-        ))}
+        <div className='categories'>
+          {categories.map(category => (
+            <button key={category} onClick={() => setActiveCategory(category)} className={`category ${category === activeCategory ? "active" : ""}`}>
+              {category}
+            </button>
+          ))}
+        </div>
       </div>
-      <div className="menupage">
-        {visibleProducts.map(product =>
-        (
-          <ProductCard key={product.id} product={product} onAddToCart={onAddToCart} />
-        )
-        )}
+      <div className="menu--right">
+        <div className="menupage">
+          {visibleProducts.map(product =>
+          (
+            <ProductCard key={product.id} product={product} onAddToCart={onAddToCart} />
+          )
+          )}
+        </div>
+        <Button onClick={onCancel} variant='outline'>
+          {t('cancel')}
+        </Button>
       </div>
-      <Button onClick={onCancel} variant='outline'>
-        {t('cancel')}
-      </Button>
     </div>
   );
 }
