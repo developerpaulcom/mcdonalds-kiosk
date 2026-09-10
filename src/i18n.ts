@@ -17,6 +17,23 @@ const resources = {
         dutch: 'Nederlands'
       },
       cancel: "Annuleren",
+      category: { beef: "Rundvlees", fries: "Friet & sausjes", shakes: "Shakes & dranken" },
+      cart: {
+        title: "Je bestelling",
+        empty: "Je mandje is nog leeg",
+        total: "Totaal",
+        checkout: "Bestellen",
+      },
+      product: {
+        add: "Voeg toe",
+        itemOnly: "Nee, aleen los product",
+      },
+      meal: {
+        choice: "Wil je er een menu van maken?",
+        size: "Kies jouw menu",
+        drink: "Kies je drank",
+        addMeal: "Maak er een menu van",
+      }
     },
   },
   en: {
@@ -32,6 +49,23 @@ const resources = {
         dutch: 'Dutch'
       },
       cancel: "Cancel",
+      category: { beef: "Beef", fries: "Fries & sauces", shakes: "Shakes & drinks" },
+      cart: {
+        title: "Your order",
+        empty: "Your basket is empty",
+        total: "Total",
+        checkout: "Order",
+      },
+      product: {
+        add: "Add",
+        itemOnly: "No, item only",
+      },
+      meal: {
+        choice: "Would you like to make it a meal?",
+        size: "Choose your meal",
+        drink: "Choose your drink",
+        addMeal: "Make it a meal",
+      }
     },
   },
 };

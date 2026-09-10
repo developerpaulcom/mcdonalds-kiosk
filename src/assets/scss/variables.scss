@@ -31,7 +31,8 @@ $font_body: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --radius-s: .25rem;
     --radius: #{$radius};
     --container-padding: 1.5rem;
-
+    --transition-prop: cubic-bezier(0.75, 0.02, 0.5, 1);
+    --transition-duration: .25s;
 
     @media (max-width: 47.9em) {
         --radius: 1rem;

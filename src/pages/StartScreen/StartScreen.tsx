@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import Button from '../../components/atoms/Button/Button';
-import eatIn from "../../assets/images/eat-in.svg";
-import takeAway from "../../assets/images/take-away.svg";
+import eatIn from "../../assets/images/eat-in-color.svg";
+import takeAway from "../../assets/images/take-away-color.svg";
 
 import './styles.scss';
 import LanguageSwitcher from '../../components/molecules/LanguageSwitcher/LanguageSwitcher';
@@ -23,7 +23,7 @@ function StartScreen({ onStart }: StartScreenProps) {
           </h1>
         </div>
 
-        <div className="buttons">
+        <div className="buttons" data-align="center">
           <Button onClick={() => onStart('eat in')} variant='panel'>
             <h2>{t('start.eatIn')}</h2>
             <img src={eatIn} alt={t('start.eatIn')} width={200} height={200} />

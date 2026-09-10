@@ -19,11 +19,11 @@ function Cart({ cart, orderType }: CartProps) {
     <aside className="cart">
       <div className="cart__title">
         {orderType && (<img src={orderType === "eat in" ? eatIn : takeAway} alt={orderType === "eat in" ? t('start.eatIn') : t('start.takeAway')} width={30} height={30} />)}
-        <h2>Je bestelling</h2>
+        <h2>{t('cart.title')}</h2>
       </div>
 
       {cart.length === 0 ? (
-        <p className="cart__empty">Je mandje is nog leeg</p>
+        <p className="cart__empty">{t('cart.empty')}</p>
       ) : (
         <ul className="cart__list">
           {cart.map(item => (
@@ -41,11 +41,11 @@ function Cart({ cart, orderType }: CartProps) {
 
       <div className="cart__footer">
         <div className="cart__total">
-          <span>Totaal</span>
+          <span>{t('cart.total')}</span>
           <span>{EUR.format(total)}</span>
         </div>
         <button className="btn btn--primary" disabled={cart.length === 0}>
-          Bestellen
+          {t('cart.checkout')}
         </button>
       </div>
     </aside>

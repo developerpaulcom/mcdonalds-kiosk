@@ -1,22 +1,24 @@
 import './styles.scss';
-import { products, type Product } from '../../data/products';
+import { products, categories, type Product, type CategoryKey, type MealSize, type Drink } from '../../data/products';
 import ProductCard from '../../components/organisms/ProductCard/ProductCard';
 import { useState } from 'react';
 import Button from '../../components/atoms/Button/Button';
 import { useTranslation } from 'react-i18next';
 import Logo from '../../components/atoms/Logo/Logo';
+import ProductModal from '../../components/organisms/ProductModal/ProductModal';
 
 type MenuPageProps = {
-  onAddToCart: (product: Product) => void;
   onCancel: () => void;
+  onSelect: (product: Product, meal?: { size: MealSize, drink: Drink }) => void;
 }
 
 
-function MenuPage({ onCancel, onAddToCart }: MenuPageProps) {
-  const categories = [...new Set(products.map(p => p.category))];
-  const [activeCategory, setActiveCategory] = useState<string>(categories[0]);
+function MenuPage({ onCancel, onSelect }: MenuPageProps) {
+
+  const [activeCategory, setActiveCategory] = useState<CategoryKey>(categories[0].key);
   const visibleProducts = products.filter(p => p.category === activeCategory);
   const { t } = useTranslation();
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
 
   return (
     <div className="menu">
@@ -24,8 +26,9 @@ function MenuPage({ onCancel, onAddToCart }: MenuPageProps) {
         <Logo />
         <div className='categories'>
           {categories.map(category => (
-            <button key={category} onClick={() => setActiveCategory(category)} className={`category ${category === activeCategory ? "active" : ""}`}>
-              {category}
+            <button key={category.key} onClick={() => setActiveCategory(category.key)} className={`category ${category.key === activeCategory ? "active" : ""}`}>
+              <img src={category.image} alt={t(`category.${category.key}`)} width={30} height={30} />
+              <span>{t(`category.${category.key}`)}</span>
             </button>
           ))}
         </div>
@@ -34,7 +37,7 @@ function MenuPage({ onCancel, onAddToCart }: MenuPageProps) {
         <div className="menupage">
           {visibleProducts.map(product =>
           (
-            <ProductCard key={product.id} product={product} onAddToCart={onAddToCart} />
+            <ProductCard key={product.id} product={product} onSelect={() => setSelectedProduct(product)} />
           )
           )}
         </div>
@@ -42,6 +45,7 @@ function MenuPage({ onCancel, onAddToCart }: MenuPageProps) {
           {t('cancel')}
         </Button>
       </div>
+      {selectedProduct && <ProductModal onAdd={(product, meal) => {onSelect(product, meal); setSelectedProduct(null)}} product={selectedProduct} onCancel={() => setSelectedProduct(null)} />}
     </div>
   );
 }
