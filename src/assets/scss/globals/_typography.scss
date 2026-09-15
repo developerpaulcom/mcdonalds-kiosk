@@ -94,7 +94,7 @@ h1 {
     font-size: 3.5rem;
 
     @media(max-width: 61.9em) {
-        font-size: 1.75rem;
+        font-size: 2.75rem;
     }
 }
 
@@ -103,10 +103,6 @@ h2 {
     font-size: 1.5rem;
     line-height: 118%;
     margin: 0 0 1.5rem;
-
-    @media(max-width: 61.9em) {
-        font-size: 1.25rem;
-    }
 }
 
 .h3,

@@ -1,6 +1,13 @@
 .menu-layout {
   display: flex;
   height: 100vh;
+
+  // Op tablet/mobiel: menu en cart onder elkaar i.p.v. naast elkaar
+  @media (max-width: 61.9em) {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
 }
 
 .menu {
@@ -10,12 +17,24 @@
   display: flex;
   padding: 2rem;
   gap: 4rem;
+
+  @media (max-width: 61.9em) {
+    height: auto;
+    padding-bottom: 17rem; // ruimte voor de vaste cart-balk + annuleer-knop zichtbaar houden
+  }
+
+  // Op mobiel: categorieën boven de producten i.p.v. ernaast
+  @media (max-width: 47.9em) {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 1rem 17rem; // bottom-padding behouden (geen shorthand-reset)
+  }
 }
 
 .menu--left {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 1rem;
 }
 
 .categories {
@@ -33,11 +52,19 @@
   gap: .5rem;
   line-height: 1.25;
   border-bottom: 1px solid var(--light);
+  white-space: nowrap;
+
+  >div {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+  }
 
   span {
     display: block;
     padding-bottom: .25rem;
     border-bottom: 2px solid var(--white);
+    white-space: break-spaces;
   }
 }
 
@@ -56,6 +83,8 @@
 }
 
 .menu--right {
+  flex: 1; // vult de ruimte naast de categorieën → auto-fit heeft een echte breedte
+  min-width: 0; // voorkomt dat flex-inhoud de container laat uitzetten
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -64,6 +93,15 @@
 
 .menupage {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  // auto-fit: zoveel kolommen van 15rem als er passen; de rest wrapt.
+  // Kaarten krimpen dus niet, maar het aantal per rij past zich aan het scherm aan.
+  grid-template-columns: repeat(auto-fit, 14rem);
+  justify-content: center;
   gap: 1.5rem;
+
+  // Op telefoons (waar auto-fit anders 1 kolom zou geven): altijd 2 naast elkaar, mogen krimpen
+  @media (max-width: 34em) {
+    grid-template-columns: repeat(2, minmax(0, 15rem));
+    gap: 1rem;
+  }
 }

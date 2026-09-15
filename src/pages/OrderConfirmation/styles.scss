@@ -1,0 +1,24 @@
+.orderconfirmation {
+    margin: 0 auto;
+    height: 100vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @media(min-width: 47.9em) {
+        width: 33%;
+    }
+
+    p {
+        text-align: center;
+        margin-top: 1rem;
+
+        span {
+            font-weight: 700;
+            font-size: 3rem;
+            display: block;
+        }
+    }
+}

@@ -27,8 +27,10 @@ function MenuPage({ onCancel, onSelect }: MenuPageProps) {
         <div className='categories'>
           {categories.map(category => (
             <button key={category.key} onClick={() => setActiveCategory(category.key)} className={`category ${category.key === activeCategory ? "active" : ""}`}>
-              <img src={category.image} alt={t(`category.${category.key}`)} width={30} height={30} />
-              <span>{t(`category.${category.key}`)}</span>
+              <div>
+                <img src={category.image} alt={t(`category.${category.key}`)} width={50} height={50} />
+                <span>{t(`category.${category.key}`)}</span>
+              </div>
             </button>
           ))}
         </div>
@@ -45,7 +47,7 @@ function MenuPage({ onCancel, onSelect }: MenuPageProps) {
           {t('cancel')}
         </Button>
       </div>
-      {selectedProduct && <ProductModal onAdd={(product, meal) => {onSelect(product, meal); setSelectedProduct(null)}} product={selectedProduct} onCancel={() => setSelectedProduct(null)} />}
+      {selectedProduct && <ProductModal onAdd={(product, meal) => { onSelect(product, meal); setSelectedProduct(null) }} product={selectedProduct} onCancel={() => setSelectedProduct(null)} />}
     </div>
   );
 }

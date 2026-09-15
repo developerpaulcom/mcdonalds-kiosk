@@ -8,15 +8,55 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 200; // boven de vaste cart-balk (z-index 100)
 }
 
 .productmodal-content {
-    height: 70vh;
-    width: 30rem;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
+    max-width: 95vw; // nooit breder dan het scherm
+
+    .productmodal-content_inner {
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: 50vh;
+        padding-block: 1rem;
+    }
+
+    .buttons {
+        grid-template-columns: repeat(3, 15rem);
+    }
+
+    .buttons--meal-choice {
+        grid-template-columns: repeat(2, 15rem);
+    }
+
+    .buttons--single {
+        grid-template-columns: 15rem;
+    }
+
+    // 3 kolommen (~48rem) passen niet meer → terug naar 2
+    @media (max-width: 61.9em) {
+        .buttons {
+            &:not(.buttons--single) {
+                grid-template-columns: repeat(2, 15rem);
+            }
+        }
+    }
+
+    // Op smalle schermen: 2 naast elkaar. vw geeft een vaste maat zonder dat de
+    // (gecentreerde, breedteloze) modal-inhoud als anker nodig is.
+    @media (max-width: 34em) {
+
+        .buttons,
+        .buttons--meal-choice {
+            &:not(.buttons--single) {
+                grid-template-columns: repeat(2, 40vw);
+            }
+        }
+    }
 }

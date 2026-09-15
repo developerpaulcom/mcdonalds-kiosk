@@ -1,18 +1,44 @@
 .startscreen {
     margin: 0 auto;
-    width: 33%;
-    height: 100vh;
+    min-height: 100vh; // fullscreen als het past, maar groeit mee + scrollt als de inhoud hoger is
     background-color: var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 33%;
+    padding-block: 2rem;
 
-    .btn--panel {
-        width: 13rem;
-        height: 13rem;
+    @media(max-width: 61.9em) {
+        width: 50%;
+    }
+
+    @media(max-width: 47.9em) {
+        width: 80%;
+    }
+
+    @media(max-width: 34em) {
+        width: 92%;
     }
 }
 
 .startscreen_content {
+    width: 100%; // geeft de grid een breedte om te verdelen
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 4rem;
+
+    @media(max-width: 47.9em) {
+        gap: 2.5rem;
+    }
+
+    // Altijd twee kolommen naast elkaar: tot max 15rem, maar mogen krimpen op smalle schermen
+    .buttons {
+        grid-template-columns: repeat(2, minmax(0, 15rem));
+    }
+
+    .btn--panel {
+        aspect-ratio: 16/17;
+    }
 }

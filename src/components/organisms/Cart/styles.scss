@@ -6,25 +6,54 @@
   flex-direction: column; // titel · lijst · footer onder elkaar
   background: var(--white);
   box-shadow: -4px 0 20px rgba(0, 0, 0, 0.08); // subtiele scheiding met het menu
+
+  // Mobiel: vaste "bottom sheet" onderaan, in te klappen
+  @media (max-width: 61.9em) {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    max-height: 85vh; // uitgeklapt nooit hoger dan 85% van het scherm
+    border-radius: 1rem 1rem 0 0;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+  }
 }
 
 .cart__title {
   margin: 0;
   padding: 1.5rem;
-  background: var(--red);
-  color: var(--white);
+  border: 0;
+  border-bottom: 1px solid var(--light);
+  background: none; // knop-reset
+  color: inherit;
   font-size: 1.4rem;
+  font-family: inherit;
   display: flex;
   gap: .5rem;
   align-items: center;
+  margin-inline: 1rem;
 
   h2 {
     margin-bottom: 0;
   }
+}
 
-  img {
-    filter: brightness(0) invert(1);
+.cart__chevron {
+  margin-left: auto; // duwt het pijltje naar rechts
+  font-size: 1.5rem;
+  transition: transform .25s ease;
+
+  // Alleen op mobiel relevant (op desktop is de lijst altijd zichtbaar)
+  @media (min-width: 62em) {
+    display: none;
   }
+}
+
+.cart--open .cart__chevron {
+  transform: rotate(180deg); // wijst omhoog als de cart openstaat
 }
 
 .cart__empty {
@@ -91,4 +120,22 @@
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 1rem;
+}
+
+// Ingeklapt op mobiel: alleen titel + footer (totaal) zichtbaar, lijst/leeg-melding verborgen.
+// Staat bewust ONDERAAN het bestand zodat het de basisregels van .cart__list/.cart__empty overschrijft.
+@media (max-width: 61.9em) {
+
+  .cart__list,
+  .cart__empty {
+    display: none;
+  }
+
+  .cart--open .cart__list {
+    display: block;
+  }
+
+  .cart--open .cart__empty {
+    display: grid;
+  }
 }

@@ -1,17 +1,16 @@
 import './styles.scss';
 
-type ButtonVariant = "primary" | "panel" | "outline" ;
+type ButtonVariant = "primary" | "panel" | "outline" | "icon" ;
 
-type ButtonProps = {
+type ButtonProps = React.ComponentPropsWithoutRef<'button'> & {
   children: React.ReactNode;
-  onClick?: () => void;
-  variant?: ButtonVariant
+  variant?: ButtonVariant;
   isActive?: boolean;
 }
 
-function Button({ variant = 'primary', children, onClick, isActive }: ButtonProps) {
+function Button({ variant = 'primary', children, isActive, className, ...rest }: ButtonProps) {
   return (
-    <button className={`btn btn--${variant} ${isActive ? 'active' : ''}`} onClick={onClick}>
+    <button className={`btn btn--${variant} ${isActive ? 'active' : ''} ${className ?? ''}`} {...rest}>
       {children}
     </button>
   );
